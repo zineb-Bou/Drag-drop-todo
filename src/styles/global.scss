@@ -1,5 +1,6 @@
 @import 'reset';
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+@import 'breakpoints';
 
 :root {
   --Check-BG-start: hsl(192, 100%, 67%);
@@ -16,40 +17,51 @@
   --Light-Grayish-Blue: hsl(234, 39%, 85%);
   --Dark-Grayish-Blue: hsl(234, 11%, 52%);
   --Very-Dark-Grayish-Blue: hsl(235, 16%, 42%);
+  //background image
+  --bg-desktop-dark: url('../../public/bg-desktop-dark.jpg') no-repeat left
+    center/cover;
+  --bg-desktop-light: url('../../public/bg-desktop-light.jpg') no-repeat left
+    center/cover;
+  --bg-mobile-light: url('../../public/bg-mobile-light.jpg') no-repeat left
+    center/cover;
+  --bg-mobile-dark: url('../../public/bg-mobile-dark.jpg') no-repeat left
+    center/cover;
 }
 body {
   min-height: 100vh;
-  display: grid;
-  justify-content: center;
-  align-items: center;
   background: var(--background);
   font-family: 'Josefin Sans', sans-serif;
 }
 
-h1 {
-  color: var(--text);
-}
 body[data-theme='light'] {
   --background: var(--Very-Light-Gray);
   // --footer-text: var(--Dark-Grayish-Blue);
   // --task-input-bg: var(--white);
   --text: var(--Very-Dark-Grayish-Blue);
+  --background-image: var(--bg-desktop-light);
   // --placeholder: var(--Dark-Grayish-Blue);
   // --button-text: var(--Dark-Grayish-Blue);
   // --button-hover: var(--Very-Dark-Grayish-Blue);
   // --box-shadow: var(--Dark-Grayish-Blue);
   // --lining: var(--Light-Gray);
+  @include breakpoint-down(small) {
+    --background-image: var(--bg-mobile-light);
+  }
 }
 body[data-theme='dark'] {
   --background: var(--Very-Dark-Blue);
   //   --footer-text: var(--Dark-Grayish-Blue);
   //   --task-input-bg: var(--Very-Dark-Desaturated-Blue);
   --text: var(--Light-Grayish-Blue);
+  --background-image: var(--bg-desktop-dark);
   //   --placeholder: var(--Dark-Grayish-Blue);
   //   --button-text: var(--Very-Dark-Grayish-Blue);
   //   --button-hover: var(--Light-Grayish-Blue);
   //   --box-shadow: var(--Very-Dark-Blue);
   //   --lining: var(--Dark-Light-Gray);
+  @include breakpoint-down(small) {
+    --background-image: var(--bg-mobile-dark);
+  }
 }
 
 .sr-only:not(:focus):not(:active) {

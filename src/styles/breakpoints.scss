@@ -1,0 +1,42 @@
+// 640px, 1150px, 1400px
+$breakpoints-up: (
+  'medium': '40em',
+  'large': '71.875em',
+  'xlarge': '87.5em',
+);
+
+// 350px 639px, 1149px, 1399px
+$breakpoints-down: (
+  'small': '34.8em',
+  'medium': '71.8125em',
+  'large': '87.4375em',
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
+
+// Media Queries
+// $mq-620-down: "only screen and (max-width: 620px)";
+// $mq-620-up: "only screen and (min-width: 620px)";
+
+// $mq-760-down: "only screen and (max-width: 759px)";
+// $mq-760-up: "only screen and (min-width: 760px)";
+
+// $mq-900-down: "only screen and (max-width: 899px)";
+// $mq-900-up: "only screen and (min-width: 900px)";
+
+// $mq-1000-down: "only screen and (max-width: 999px)";
+// $mq-1000-up: "only screen and (min-width: 1000px)";
+
+// $mq-1180-up: "only screen and (min-width: 1180px)";
+
+// $mq-1400-up: "only screen and (min-width: 1400px)";

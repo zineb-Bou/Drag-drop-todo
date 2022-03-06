@@ -6,7 +6,7 @@ export const ButtonStyle = css`
   width: 2rem;
   height: 2rem;
   box-sizing: border-box;
-  background-color: red;
+  background: none;
   border: none;
   display: flex;
   justify-content: center;
