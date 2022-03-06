@@ -1,0 +1,63 @@
+@import 'reset';
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+  --Check-BG-start: hsl(192, 100%, 67%);
+  --Check-BG-middle: hsl(220, 98%, 61%);
+  --Check-BG-end: hsl(280, 87%, 65%);
+  --Light-Gray: hsl(236, 32%, 92%);
+  --Dark-Light-Gray: hsl(235, 14%, 26%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+  --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+  --Dark-Grayish-Blue: hsl(235, 9%, 61%);
+  --Very-Dark-Blue: hsl(235, 21%, 11%);
+  --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+  --Light-Grayish-Blue: hsl(234, 39%, 85%);
+  --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+  --Very-Dark-Grayish-Blue: hsl(235, 16%, 42%);
+}
+body {
+  min-height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: var(--background);
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h1 {
+  color: var(--text);
+}
+body[data-theme='light'] {
+  --background: var(--Very-Light-Gray);
+  // --footer-text: var(--Dark-Grayish-Blue);
+  // --task-input-bg: var(--white);
+  --text: var(--Very-Dark-Grayish-Blue);
+  // --placeholder: var(--Dark-Grayish-Blue);
+  // --button-text: var(--Dark-Grayish-Blue);
+  // --button-hover: var(--Very-Dark-Grayish-Blue);
+  // --box-shadow: var(--Dark-Grayish-Blue);
+  // --lining: var(--Light-Gray);
+}
+body[data-theme='dark'] {
+  --background: var(--Very-Dark-Blue);
+  //   --footer-text: var(--Dark-Grayish-Blue);
+  //   --task-input-bg: var(--Very-Dark-Desaturated-Blue);
+  --text: var(--Light-Grayish-Blue);
+  //   --placeholder: var(--Dark-Grayish-Blue);
+  //   --button-text: var(--Very-Dark-Grayish-Blue);
+  //   --button-hover: var(--Light-Grayish-Blue);
+  //   --box-shadow: var(--Very-Dark-Blue);
+  //   --lining: var(--Dark-Light-Gray);
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
