@@ -2,6 +2,9 @@ import dynamic from 'next/dynamic';
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';
+import { title, header, headerContainer } from './header.css';
+import CheckBox from '../check Box/checkBox';
+
 
 const ThemeToggle = dynamic(() => import('../ToggleSwitch/ToggleSwitch'), {
   ssr: false,
@@ -9,38 +12,13 @@ const ThemeToggle = dynamic(() => import('../ToggleSwitch/ToggleSwitch'), {
 
 function Header() {
   return (
-    <div
-      css={css`
-        width: 100%;
-        height: 250px;
-        background: var(--background-image);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      `}
-    >
-      <div
-        css={css`
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 350px;
-        `}
-      >
-        <h1
-          css={css`
-            color: white;
-            font-weight: bold;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-          `}
-        >
-          Todo
-        </h1>
+    <header css={header}>
+      <div css={headerContainer}>
+        <h1 css={title}>Todo</h1>
         <ThemeToggle />
+        <CheckBox />
       </div>
-    </div>
+    </header>
   );
 }
 

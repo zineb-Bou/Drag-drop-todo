@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ButtonStyle } from './ToggleSwitch.css.js';
+import { ButtonStyle } from './ToggleSwitch.css';
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';

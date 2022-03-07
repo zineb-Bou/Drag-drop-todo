@@ -43,7 +43,7 @@ body[data-theme='light'] {
   // --button-text: var(--Dark-Grayish-Blue);
   // --button-hover: var(--Very-Dark-Grayish-Blue);
   // --box-shadow: var(--Dark-Grayish-Blue);
-  // --lining: var(--Light-Gray);
+  --lining: var(--Light-Gray);
   @include breakpoint-down(small) {
     --background-image: var(--bg-mobile-light);
   }
@@ -58,7 +58,7 @@ body[data-theme='dark'] {
   //   --button-text: var(--Very-Dark-Grayish-Blue);
   //   --button-hover: var(--Light-Grayish-Blue);
   //   --box-shadow: var(--Very-Dark-Blue);
-  //   --lining: var(--Dark-Light-Gray);
+  --lining: var(--Dark-Light-Gray);
   @include breakpoint-down(small) {
     --background-image: var(--bg-mobile-dark);
   }

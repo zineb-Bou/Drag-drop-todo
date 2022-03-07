@@ -62,7 +62,6 @@ export const ButtonStyle = css`
       transform: rotate(45deg);
     }
   }
-
   .moon {
     display: block;
     box-sizing: border-box;
