@@ -2,13 +2,24 @@
 import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';
 import TodoElement from '../To do element/todoElement';
-import TodoInput from '../To do input/todoInput';
-import { todoContainer } from './todoList.css';
+import TodoForm from '../To do input/todoForm';
+import { todoContainer, completedTodo } from './todoList.css';
+import { useState } from 'react';
 
 export default function TodoList() {
+  const [todos, setTodos] = useState([]);
+
+  const toggleComplete = (i) =>
+    setTodos(
+      todos.map((todo, k) =>
+        k === i ? { ...todo, complete: !todo.complete } : todo
+      )
+    );
   return (
     <div css={todoContainer}>
-      <TodoInput />
+      <TodoForm
+        onSubmit={(text) => setTodos([{ text, complete: false }, ...todos])}
+      />
       <div
         css={css`
           width: 90%;
@@ -19,8 +30,14 @@ export default function TodoList() {
           overflow: hidden;
         `}
       >
-        <TodoElement todo="Be amazing" />
-        <TodoElement todo="Have fun" />
+        {todos.map(({ text, complete }, i) => (
+          <TodoElement
+            todo={text}
+            complete={complete}
+            onClick={() => toggleComplete(i)}
+            style={complete ? completedTodo : ''}
+          />
+        ))}
       </div>
     </div>
   );

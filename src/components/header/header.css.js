@@ -19,7 +19,6 @@ export const headerContainer = css`
   align-items: center;
   width: 90%;
   max-width: 450px;
-  border: 1px solid red;
 `;
 
 export const title = css`

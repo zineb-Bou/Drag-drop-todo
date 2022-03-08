@@ -12,10 +12,16 @@ export const todoElement = css`
   padding: 1rem;
   background: var(--todo-bg);
   border-bottom: 1px solid var(--Dark-Grayish-Blue);
+  cursor: pointer;
 `;
 
 export const todoText = css`
   text-align: left;
   width: 80%;
   color: var(--text);
+`;
+
+export const closeBtn = css`
+  background: transparent;
+  border: none;
 `;

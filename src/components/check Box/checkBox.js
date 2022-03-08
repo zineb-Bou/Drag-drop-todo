@@ -1,11 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';
-import { checkbox } from './checkBox.css';
+import { checkbox, check } from './checkBox.css';
 import { useState } from 'react';
 
-export default function Checkbox() {
-  const [checked, setChecked] = useState(false);
+export default function Checkbox({ checked }) {
   const [hover, setHover] = useState(false);
   const handleMouseOver = () => {
     if (!checked) setHover(true);
@@ -15,8 +14,8 @@ export default function Checkbox() {
   };
   return (
     <label
-      //css={checkbox}
-      className={`${checked ? 'checked' : ''} ${hover ? 'hover' : ''}`}
+      css={[checkbox, checked ? check : '']}
+      className={`${hover ? 'hover' : ''}`}
       onMouseEnter={handleMouseOver}
       onMouseOut={handleMouseOut}
       htmlFor="checkbox"
@@ -26,8 +25,6 @@ export default function Checkbox() {
       <input
         id="checkbox"
         type="checkbox"
-        onChange={() => setChecked(!checked)}
-        checked={checked}
       />
     </label>
   );

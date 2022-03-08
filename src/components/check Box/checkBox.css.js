@@ -2,6 +2,18 @@
 import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';
 
+export const check = css`
+  border: none;
+  background: linear-gradient(
+    to right,
+    var(--Check-BG-start),
+    var(--Check-BG-middle),
+    var(--Check-BG-end)
+  );
+  &:after {
+    opacity: 1;
+  }
+`;
 export const checkbox = css`
   cursor: pointer;
   height: 24px;
@@ -23,18 +35,7 @@ export const checkbox = css`
     opacity: 0;
     transform: rotate(-50deg);
   }
-  &.checked {
-    border: none;
-    background: linear-gradient(
-      to right,
-      var(--Check-BG-start),
-      var(--Check-BG-middle),
-      var(--Check-BG-end)
-    );
-    &:after {
-      opacity: 1;
-    }
-  }
+
   &.hover {
     border-radius: 50px; /*1*/
     border: 2px solid transparent; /*2*/
@@ -52,8 +53,8 @@ export const checkbox = css`
   }
   input[type='checkbox'] {
     position: absolute;
-    // opacity: 0;
-    width: 10px;
-    height: 10px;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
   }
 `;
