@@ -31,18 +31,19 @@ body {
   min-height: 100vh;
   background: var(--background);
   font-family: 'Josefin Sans', sans-serif;
+  transition: background 0.2s ease-in-out;
 }
 
 body[data-theme='light'] {
   --background: var(--Very-Light-Gray);
-  // --footer-text: var(--Dark-Grayish-Blue);
-  // --task-input-bg: var(--white);
+  --footer-text: var(--Dark-Grayish-Blue);
+  --todo-bg: var(--white);
   --text: var(--Very-Dark-Grayish-Blue);
   --background-image: var(--bg-desktop-light);
-  // --placeholder: var(--Dark-Grayish-Blue);
-  // --button-text: var(--Dark-Grayish-Blue);
-  // --button-hover: var(--Very-Dark-Grayish-Blue);
-  // --box-shadow: var(--Dark-Grayish-Blue);
+  --placeholder: var(--Dark-Grayish-Blue);
+  --button-text: var(--Dark-Grayish-Blue);
+  --button-hover: var(--Very-Dark-Grayish-Blue);
+  --box-shadow: var(--Dark-Grayish-Blue);
   --lining: var(--Light-Gray);
   @include breakpoint-down(small) {
     --background-image: var(--bg-mobile-light);
@@ -50,14 +51,14 @@ body[data-theme='light'] {
 }
 body[data-theme='dark'] {
   --background: var(--Very-Dark-Blue);
-  //   --footer-text: var(--Dark-Grayish-Blue);
-  //   --task-input-bg: var(--Very-Dark-Desaturated-Blue);
+  --footer-text: var(--Dark-Grayish-Blue);
+  --todo-bg: var(--Very-Dark-Desaturated-Blue);
   --text: var(--Light-Grayish-Blue);
   --background-image: var(--bg-desktop-dark);
-  //   --placeholder: var(--Dark-Grayish-Blue);
-  //   --button-text: var(--Very-Dark-Grayish-Blue);
-  //   --button-hover: var(--Light-Grayish-Blue);
-  //   --box-shadow: var(--Very-Dark-Blue);
+  --placeholder: var(--Dark-Grayish-Blue);
+  --button-text: var(--Very-Dark-Grayish-Blue);
+  --button-hover: var(--Light-Grayish-Blue);
+  --box-shadow: var(--Very-Dark-Blue);
   --lining: var(--Dark-Light-Gray);
   @include breakpoint-down(small) {
     --background-image: var(--bg-mobile-dark);

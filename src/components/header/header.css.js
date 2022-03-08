@@ -10,6 +10,7 @@ export const header = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: background 0.2s ease-in-out;
 `;
 
 export const headerContainer = css`
@@ -17,7 +18,7 @@ export const headerContainer = css`
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  max-width: 350px;
+  max-width: 450px;
   border: 1px solid red;
 `;
 
