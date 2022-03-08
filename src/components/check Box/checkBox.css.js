@@ -3,14 +3,13 @@ import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';
 
 export const checkbox = css`
-  margin-left: 24px;
   cursor: pointer;
   height: 24px;
   width: 24px;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 2px solid var(--Very-Dark-Grayish-Blue);
-  // border: 1px solid var(--lining);
   box-sizing: border-box;
   background: transparent;
   border-radius: 50%;
@@ -23,10 +22,6 @@ export const checkbox = css`
     width: 10px;
     opacity: 0;
     transform: rotate(-50deg);
-  }
-  input[type='checkbox'] {
-    position: absolute;
-    visibility: hidden;
   }
   &.checked {
     border: none;
@@ -42,11 +37,10 @@ export const checkbox = css`
   }
   &.hover {
     border-radius: 50px; /*1*/
-    border: 2.5px solid transparent; /*2*/
+    border: 2px solid transparent; /*2*/
     background: linear-gradient(
         45deg,
         var(--Check-BG-start),
-        var(--Check-BG-middle),
         var(--Check-BG-end)
       )
       border-box; /*3*/
@@ -54,5 +48,12 @@ export const checkbox = css`
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out; /*5'*/
     mask-composite: exclude; /*5*/
+    transition: all 0.3s ease-in-out;
+  }
+  input[type='checkbox'] {
+    position: absolute;
+    // opacity: 0;
+    width: 10px;
+    height: 10px;
   }
 `;
