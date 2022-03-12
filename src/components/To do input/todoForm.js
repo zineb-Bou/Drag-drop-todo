@@ -5,7 +5,7 @@ import { useState } from 'react';
 import CheckBox from '../check Box/checkBox';
 import { todoInput, form } from './todoForm.css';
 
-//using a customized hook to set the input value
+//using a customized hook to set the input value  
 const useInputValue = () => {
   const [value, setValue] = useState('');
   return {

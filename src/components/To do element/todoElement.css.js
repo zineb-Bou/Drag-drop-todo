@@ -24,4 +24,5 @@ export const todoText = css`
 export const closeBtn = css`
   background: transparent;
   border: none;
+  z-index: 2;
 `;

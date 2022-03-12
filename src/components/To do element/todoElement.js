@@ -5,13 +5,24 @@ import { useState } from 'react';
 import CheckBox from '../check Box/checkBox';
 import { todoElement, todoText, closeBtn } from './todoElement.css';
 
-export default function TodoElement({ todo, onClick, style, complete }) {
+export default function TodoElement({
+  todo,
+  onClick,
+  style,
+  complete,
+  key,
+  deleteTodo,
+}) {
   return (
-    <div css={[todoElement, style]} onClick={onClick}>
-      <CheckBox checked={complete} />
+    <div css={[todoElement, style]} key={key}>
+      <CheckBox checked={complete} onClick={onClick} />
       <p css={todoText}>{todo}</p>
       {complete ? (
-        <button css={closeBtn} arai-label="Close">
+        <button
+          css={closeBtn}
+          arai-label="remove todo"
+          onClick={() => deleteTodo(key)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"

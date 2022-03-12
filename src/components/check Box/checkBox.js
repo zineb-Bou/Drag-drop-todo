@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import { checkbox, check } from './checkBox.css';
 import { useState } from 'react';
 
-export default function Checkbox({ checked }) {
+export default function Checkbox({ checked, onClick }) {
   const [hover, setHover] = useState(false);
   const handleMouseOver = () => {
     if (!checked) setHover(true);
@@ -12,6 +12,7 @@ export default function Checkbox({ checked }) {
   const handleMouseOut = () => {
     setHover(false);
   };
+
   return (
     <label
       css={[checkbox, checked ? check : '']}
@@ -22,10 +23,7 @@ export default function Checkbox({ checked }) {
       aria-label="check box"
     >
       <div aria-hidden="true"></div>
-      <input
-        id="checkbox"
-        type="checkbox"
-      />
+      <input id="checkbox" type="checkbox" onClick={onClick} />
     </label>
   );
 }

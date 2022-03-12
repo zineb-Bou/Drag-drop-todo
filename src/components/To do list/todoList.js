@@ -5,6 +5,7 @@ import TodoElement from '../To do element/todoElement';
 import TodoForm from '../To do input/todoForm';
 import { todoContainer, completedTodo } from './todoList.css';
 import { useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
 export default function TodoList() {
   const [todos, setTodos] = useState([]);
@@ -15,10 +16,20 @@ export default function TodoList() {
         k === i ? { ...todo, complete: !todo.complete } : todo
       )
     );
+
+  const deleteTodo = (i) => {
+    let newTodos = todos.filter((todo) => {
+      return todo.id !== i;
+    });
+    setTodos(newTodos);
+  };
   return (
     <div css={todoContainer}>
       <TodoForm
-        onSubmit={(text) => setTodos([{ text, complete: false }, ...todos])}
+        onSubmit={(text) => {
+          setTodos([{ text, complete: false, id: uuid() }, ...todos]);
+          console.log(todos);
+        }}
       />
       <div
         css={css`
@@ -30,11 +41,13 @@ export default function TodoList() {
           overflow: hidden;
         `}
       >
-        {todos.map(({ text, complete }, i) => (
+        {todos.map(({ text, complete, id }, i) => (
           <TodoElement
+            key={id}
             todo={text}
             complete={complete}
             onClick={() => toggleComplete(i)}
+            deleteTodo={deleteTodo}
             style={complete ? completedTodo : ''}
           />
         ))}
