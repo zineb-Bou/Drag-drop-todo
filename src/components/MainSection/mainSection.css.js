@@ -6,6 +6,8 @@ export const todoContainer = css`
   display: grid;
   place-items: center;
   margin-top: -80px;
+  padding: 0;
+  border: 1px solid red;
 `;
 
 export const completedTodo = css`
