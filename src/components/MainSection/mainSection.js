@@ -5,6 +5,7 @@ import TodoList from '../Todo_list/todoList';
 import TodoForm from '../Todo_form/TodoForm';
 import { TodoContextProvider } from '../../utils/todoContext';
 import { todoContainer } from './mainSection.css';
+import TodoFooter from '../Footer/todoFooter';
 
 export default function MainSec() {
   return (
@@ -12,6 +13,7 @@ export default function MainSec() {
       <TodoContextProvider>
         <TodoForm />
         <TodoList />
+        <TodoFooter />
       </TodoContextProvider>
     </div>
   );

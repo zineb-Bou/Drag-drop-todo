@@ -2,12 +2,13 @@
 import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';
 import Header from '../components/header/header';
-import TodoList from '../components/To do list/todoList';
+import MainSec from '../components/MainSection/mainSection';
+
 export default function Home() {
   return (
     <>
       <Header />
-      <TodoList />
+      <MainSec />
       <footer
         css={css`
           margin: 50px 0;
@@ -19,7 +20,16 @@ export default function Home() {
         <p>Drag and drop to reorder list</p>
         <p>
           Made with ❤️ by
-          <a href="https://github.com/zineb-Bou">Zineb Boutaa</a>
+          <a
+            href="https://github.com/zineb-Bou"
+            css={css`
+              text-decoration: none;
+              color: var(--Check-BG-end);
+            `}
+          >
+            {' '}
+            Zineb Boutaa
+          </a>
         </p>
       </footer>
     </>

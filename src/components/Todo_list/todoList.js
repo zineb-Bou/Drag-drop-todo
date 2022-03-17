@@ -4,6 +4,7 @@ import { css } from '@emotion/react';
 import TodoElement from '../Todo_element/todoElement';
 import { useContext } from 'react';
 import { TodoContext } from '../../utils/todoContext';
+import { todoListWrapper } from './todoList.css';
 
 export const getFilteredTodos = (todos, visibilityFilter) => {
   switch (visibilityFilter) {
@@ -22,15 +23,7 @@ export default function TodoList() {
   const { state } = useContext(TodoContext);
   const { todos, visibilityFilter } = state;
   return (
-    <ul
-      role="list"
-      css={css`
-        width: 90%;
-        max-width: 450px;
-        border-radius: 5px;
-        overflow: hidden;
-      `}
-    >
+    <ul role="list" css={todoListWrapper}>
       {getFilteredTodos(todos, visibilityFilter).map((todo, index) => (
         <TodoElement todo={todo} />
       ))}
