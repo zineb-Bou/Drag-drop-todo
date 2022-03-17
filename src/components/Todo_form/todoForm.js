@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';
 import { useState, useContext } from 'react';
-import Checkbox from '../Checkbox/Checkbox';
+//import Checkbox from '../Checkbox/Checkbox';
 import { todoInput, form } from './todoForm.css';
 import { TodoContext } from '../../utils/todoContext';
 import { v4 as uuidv4 } from 'uuid';
@@ -39,13 +39,13 @@ export default function TodoForm() {
         resetValue();
       }}
     >
-      <Checkbox
+      {/* <Checkbox
         onClick={() =>
           dispatch({
             type: 'COMPLETE_ALL',
           })
         }
-      />
+      /> */}
       <input
         css={todoInput}
         placeholder="What is your next todo?"
