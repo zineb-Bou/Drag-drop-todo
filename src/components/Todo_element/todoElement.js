@@ -9,7 +9,6 @@ import { TodoContext } from '../../utils/todoContext';
 export default function TodoElement({ todo }) {
   const { dispatch } = useContext(TodoContext);
   const { id, completed, text } = todo;
-
   const deleteTodo = (id) =>
     dispatch({
       type: 'DELETE_TODO',
