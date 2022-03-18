@@ -25,7 +25,7 @@ export default function TodoList() {
   return (
     <ul role="list" css={todoListWrapper}>
       {getFilteredTodos(todos, visibilityFilter).map((todo, index) => (
-        <TodoElement todo={todo} />
+        <TodoElement key={todo.id} todo={todo} />
       ))}
     </ul>
   );

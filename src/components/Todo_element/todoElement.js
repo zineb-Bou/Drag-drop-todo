@@ -26,7 +26,7 @@ export default function TodoElement({ todo }) {
       },
     });
   return (
-    <li key={id} css={todoElement}>
+    <li css={todoElement}>
       {/* <Checkbox onClick={() => completeTodo(todo.id)} /> */}
       <p css={todoText}>{text}</p>
       {completed ? (
