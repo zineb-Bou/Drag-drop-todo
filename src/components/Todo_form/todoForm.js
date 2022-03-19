@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';
 import { useState, useContext } from 'react';
-//import Checkbox from '../Checkbox/Checkbox';
+import Checkbox from '../Checkbox/checkbox';
 import { todoInput, form } from './todoForm.css';
 import { TodoContext } from '../../utils/todoContext';
 import { v4 as uuidv4 } from 'uuid';
@@ -18,8 +18,9 @@ const useInputValue = () => {
 };
 
 export default function TodoForm() {
-  const { dispatch } = useContext(TodoContext);
+  const { state, dispatch } = useContext(TodoContext);
   const { resetValue, ...textInput } = useInputValue('');
+
   return (
     <form
       css={form}
@@ -40,6 +41,8 @@ export default function TodoForm() {
       }}
     >
       {/* <Checkbox
+        id={'cs'}
+        text={'mark all as completed'}
         onClick={() =>
           dispatch({
             type: 'COMPLETE_ALL',

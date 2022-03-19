@@ -1,30 +1,22 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';
-import { checkbox, check } from './checkbox.css';
-import { useState } from 'react';
+import { checkbox, checkbox_label } from './checkbox.css';
 
-export default function Checkbox({ onClick }) {
-  // const [hover, setHover] = useState(false);
-  // const handleMouseOver = () => {
-  //   if (!checked) setHover(true);
-  // };
-  // const handleMouseOut = () => {
-  //   setHover(false);
-  // };
-
+export default function Checkbox({ onClick, checked, id, text }) {
   return (
-    <label
-      css={checkbox}
-      // className={`${hover ? 'hover' : ''}`}
-      // onMouseEnter={handleMouseOver}
-      // onMouseOut={handleMouseOut}
-      onClick={onClick}
-      htmlFor="checkbox"
-      aria-label="check box"
-    >
-      <div aria-hidden="true"></div>
-      <input id="checkbox" type="checkbox" />
-    </label>
+    <div css={checkbox}>
+      <input id={id} type="checkbox" onChange={onClick} checked={checked} />
+      <label css={checkbox_label} htmlFor={id} aria-label={text}>
+        <svg viewBox="0 0 100 100">
+          <path
+            fill="none"
+            stroke="#000"
+            strokeWidth="13"
+            d="M12.1 52.1l24.4 24.4 53-53"
+          />
+        </svg>
+      </label>
+    </div>
   );
 }

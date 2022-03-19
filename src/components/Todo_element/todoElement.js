@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';
 import { useState, useContext } from 'react';
-//import Checkbox from '../Checkbox/checkbox';
+import Checkbox from '../Checkbox/checkbox';
 import { todoElement, todoText, closeBtn } from './todoElement.css';
 import { TodoContext } from '../../utils/todoContext';
 
@@ -27,7 +27,12 @@ export default function TodoElement({ todo }) {
     });
   return (
     <li css={todoElement}>
-      {/* <Checkbox onClick={() => completeTodo(todo.id)} /> */}
+      <Checkbox
+        onClick={() => completeTodo(todo.id)}
+        checked={completed}
+        id={id}
+        text={text}
+      />
       <p css={todoText}>{text}</p>
       {completed ? (
         <button
