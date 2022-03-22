@@ -12,7 +12,8 @@ export const todoElement = css`
   padding: 1rem;
   background: var(--todo-bg);
   border-bottom: 1px solid var(--Dark-Grayish-Blue);
-  cursor: pointer;
+  cursor: grab;
+  user-select: none;
 `;
 
 export const todoText = css`

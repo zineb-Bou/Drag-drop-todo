@@ -8,11 +8,12 @@ import { todoContainer } from './mainSection.css';
 import TodoFooter from '../Footer/todoFooter';
 
 export default function MainSec() {
+
   return (
     <div css={todoContainer}>
       <TodoContextProvider>
         <TodoForm />
-        <TodoList />
+        <TodoList />;
         <TodoFooter />
       </TodoContextProvider>
     </div>

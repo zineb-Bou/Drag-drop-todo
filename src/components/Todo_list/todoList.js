@@ -2,9 +2,10 @@
 import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';
 import TodoElement from '../Todo_element/todoElement';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { TodoContext } from '../../utils/todoContext';
 import { todoListWrapper } from './todoList.css';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 export const getFilteredTodos = (todos, visibilityFilter) => {
   switch (visibilityFilter) {
@@ -22,11 +23,51 @@ export const getFilteredTodos = (todos, visibilityFilter) => {
 export default function TodoList() {
   const { state } = useContext(TodoContext);
   const { todos, visibilityFilter } = state;
+  const [isBrowser, setIsBrowser] = useState(false);
+  // To make the dragging  works  since I am using  SSR
+  useEffect(() => {
+    setIsBrowser(process.browser);
+  }, []);
+  //Updating the original todo array when dragging & dropping items around
+  useEffect(() => {
+    updatetodoPlacement(todos);
+  }, [todos]);
+  const [todoPlacement, updatetodoPlacement] = useState(todos);
+  const handleOndragEnd = (result) => {
+    // Avoiding the error when moving the items out of their droppable area.
+    if (!result.destination) return;
+    const items = Array.from(todoPlacement);
+    //Retrieving the item from its previous position
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    //Drop the item at its new postition
+    items.splice(result.destination.index, 0, reorderedItem);
+    updatetodoPlacement(items);
+  };
   return (
-    <ul role="list" css={todoListWrapper}>
-      {getFilteredTodos(todos, visibilityFilter).map((todo, index) => (
-        <TodoElement key={todo.id} todo={todo} />
-      ))}
-    </ul>
+    <>
+      {isBrowser ? (
+        <DragDropContext onDragEnd={handleOndragEnd}>
+          <Droppable droppableId="droppable-1">
+            {(provided) => {
+              return (
+                <ul
+                  role="list"
+                  css={todoListWrapper}
+                  ref={provided.innerRef}
+                  {...provided.droppableProps}
+                >
+                  {getFilteredTodos(todoPlacement, visibilityFilter).map(
+                    (todo, index) => (
+                      <TodoElement todo={todo} key={todo.id} index={index} />
+                    )
+                  )}
+                  {provided.placeholder}
+                </ul>
+              );
+            }}
+          </Droppable>
+        </DragDropContext>
+      ) : null}
+    </>
   );
 }

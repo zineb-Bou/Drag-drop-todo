@@ -7,7 +7,7 @@ import MainSec from '../components/MainSection/mainSection';
 export default function Home() {
   return (
     <>
-      <Header />
+        <Header />  
       <MainSec />
       <footer
         css={css`
