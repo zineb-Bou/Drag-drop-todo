@@ -26,8 +26,6 @@ export const todoInput = css`
   font-weight: 400;
   letter-spacing: 1px;
   &::placeholder {
-    color: var(--placeholder);
+    color: var(--Dark-Grayish-Blue);
   }
 `;
-
-

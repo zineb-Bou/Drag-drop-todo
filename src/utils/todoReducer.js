@@ -1,7 +1,7 @@
 export const reducer = (state, action) => {
-  //passing our new todo is here, if it is provided or passing undefined object
+  //Passing our new todo if it is provided or passing undefined object
   const { id, text } = action.payload || { id: undefined, text: undefined };
-  // this is our state that we are passing througn the whole app{todo,visibilityFilter}
+  // This is our state that we are passing througn the whole app{todo,visibilityFilter}
   const { todos, visibilityFilter } = state;
   switch (action.type) {
     case 'ADD_TODO':
@@ -57,7 +57,6 @@ export const reducer = (state, action) => {
         todos: [...action.payload.todos],
         visibilityFilter,
       };
-
     default:
       return state;
   }

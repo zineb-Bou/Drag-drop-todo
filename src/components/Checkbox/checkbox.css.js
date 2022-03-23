@@ -11,7 +11,7 @@ export const checkbox = css`
   }
   & input:hover:not(:checked) + label {
     &:before {
-      border: 2px solid transparent; /*2*/
+      border: 1.5px solid transparent; /*2*/
       background: linear-gradient(
           45deg,
           hsl(192, 100%, 67%),
@@ -28,7 +28,7 @@ export const checkbox = css`
 
   & input:checked + label {
     &:before {
-      border-color: transparent;
+      border: none;
       background: linear-gradient(
         to bottom,
         hsl(192, 100%, 67%),
@@ -54,7 +54,9 @@ export const checkbox_label = css`
     height: 24px;
     border-radius: 100px;
     display: inline-block;
-    border: 2px solid #c5c5c5;
+    // border: 1.5px solid #34364b;
+    // border: 1.5px solid hsl(236, 32%, 92%);
+    border: 1.5px solid var(--lining);
     transition: all 0.35s ease-out;
   }
   svg {

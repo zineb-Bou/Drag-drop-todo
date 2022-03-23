@@ -6,17 +6,23 @@
   --Check-BG-start: hsl(192, 100%, 67%);
   --Check-BG-middle: hsl(220, 98%, 61%);
   --Check-BG-end: hsl(280, 87%, 65%);
+
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --Very-Dark-Blue: hsl(235, 21%, 11%);
+
+  --Light-Grayish-Blue: hsl(235, 9%, 61%);
+  --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+
+  --white: hsl(0, 0%, 100%);
+  --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+
+  --Light-Blue: hsl(234, 39%, 85%);
+  --Very-Dark-Grayish-Blue: hsl(235, 16%, 42%);
+
   --Light-Gray: hsl(236, 32%, 92%);
   --Dark-Light-Gray: hsl(235, 14%, 26%);
-  --Very-Light-Gray: hsl(0, 0%, 98%);
-  --white: hsl(0, 0%, 100%);
+
   --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
-  --Dark-Grayish-Blue: hsl(235, 9%, 61%);
-  --Very-Dark-Blue: hsl(235, 21%, 11%);
-  --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
-  --Light-Grayish-Blue: hsl(234, 39%, 85%);
-  --Dark-Grayish-Blue: hsl(234, 11%, 52%);
-  --Very-Dark-Grayish-Blue: hsl(235, 16%, 42%);
   //background image
   --bg-desktop-dark: url('../../public/bg-desktop-dark.jpg') no-repeat left
     center/cover;
@@ -36,30 +42,25 @@ body {
 
 body[data-theme='light'] {
   --background: var(--Very-Light-Gray);
-  --footer-text: var(--Dark-Grayish-Blue);
   --todo-bg: var(--white);
+  --footer-text: var(--Light-Grayish-Blue);
+  --footer-hover: var(--Dark-Light-Gray);
   --text: var(--Very-Dark-Grayish-Blue);
-  --background-image: var(--bg-desktop-light);
-  --placeholder: var(--Dark-Grayish-Blue);
-  --button-text: var(--Dark-Grayish-Blue);
-  --button-hover: var(--Very-Dark-Grayish-Blue);
-  --box-shadow: var(--Dark-Grayish-Blue);
   --lining: var(--Light-Gray);
+  --background-image: var(--bg-desktop-light);
   @include breakpoint-down(small) {
     --background-image: var(--bg-mobile-light);
   }
 }
 body[data-theme='dark'] {
   --background: var(--Very-Dark-Blue);
-  --footer-text: var(--Dark-Grayish-Blue);
   --todo-bg: var(--Very-Dark-Desaturated-Blue);
-  --text: var(--Light-Grayish-Blue);
+  --footer-text: var(--Dark-Grayish-Blue);
+  --footer-hover: var(--Light-Blue);
+  --text: var(--Light-Blue);
+  --lining: var(--Very-Dark-Grayish-Blue);
   --background-image: var(--bg-desktop-dark);
-  --placeholder: var(--Dark-Grayish-Blue);
-  --button-text: var(--Very-Dark-Grayish-Blue);
-  --button-hover: var(--Light-Grayish-Blue);
-  --box-shadow: var(--Very-Dark-Blue);
-  --lining: var(--Dark-Light-Gray);
+
   @include breakpoint-down(small) {
     --background-image: var(--bg-mobile-dark);
   }

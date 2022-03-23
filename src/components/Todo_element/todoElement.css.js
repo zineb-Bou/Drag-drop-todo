@@ -11,7 +11,7 @@ export const todoElement = css`
   height: 46px;
   padding: 1rem;
   background: var(--todo-bg);
-  border-bottom: 1px solid var(--Dark-Grayish-Blue);
+  border-bottom: 1px solid var(--lining);
   cursor: grab;
   user-select: none;
 `;
@@ -20,6 +20,7 @@ export const todoText = css`
   text-align: left;
   width: 80%;
   color: var(--text);
+  margin-left: 1rem;
 `;
 
 export const closeBtn = css`

@@ -9,7 +9,7 @@ const FILTER_TITLES = ['All', 'Active', 'Completed'];
 
 export default function TodoFooter() {
   const { state, dispatch } = useContext(TodoContext);
-  const { todos } = state;
+  const { todos, visibilityFilter } = state;
   const todosCount = todos.length;
   const completedCount = todos.reduce(
     (count, todo) => (todo.completed ? count + 1 : count),
@@ -26,6 +26,13 @@ export default function TodoFooter() {
         {FILTER_TITLES.map((filter) => (
           <li key={filter}>
             <a
+              css={
+                filter === visibilityFilter
+                  ? css`
+                      color: var(--Check-BG-middle);
+                    `
+                  : ''
+              }
               onClick={() =>
                 dispatch({
                   type: 'SET_VISIBILITY',
@@ -40,18 +47,17 @@ export default function TodoFooter() {
           </li>
         ))}
       </ul>
-      {!!completedCount && (
-        <button
-          css={clearCompleted}
-          onClick={() =>
-            dispatch({
-              type: 'CLEAR_COMPLETED',
-            })
-          }
-        >
-          Clear completed
-        </button>
-      )}
+      {/* {!!completedCount && ( */}
+      <button
+        css={clearCompleted}
+        onClick={() =>
+          dispatch({
+            type: 'CLEAR_COMPLETED',
+          })
+        }
+      >
+        Clear completed
+      </button>
     </div>
   );
 }

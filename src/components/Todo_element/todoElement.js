@@ -26,12 +26,22 @@ export default function TodoElement({ todo, index }) {
         text,
       },
     });
+
+  // Set different style when completed === true
+  const complete = css`
+    text-decoration: 1px line-through;
+    color: var(--Dark-Grayish-Blue);
+    & > p {
+      color: var(--Dark-Grayish-Blue);
+    }
+  `;
+
   return (
     <Draggable draggableId={id} index={index}>
       {(provided) => {
         return (
           <li
-            css={todoElement}
+            css={[todoElement, completed ? complete : '']}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             ref={provided.innerRef}

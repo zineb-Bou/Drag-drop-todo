@@ -21,27 +21,28 @@ export const getFilteredTodos = (todos, visibilityFilter) => {
 };
 
 export default function TodoList() {
-  const { state } = useContext(TodoContext);
+  const { state, dispatch } = useContext(TodoContext);
   const { todos, visibilityFilter } = state;
   const [isBrowser, setIsBrowser] = useState(false);
   // To make the dragging  works  since I am using  SSR
   useEffect(() => {
     setIsBrowser(process.browser);
   }, []);
-  //Updating the original todo array when dragging & dropping items around
-  useEffect(() => {
-    updatetodoPlacement(todos);
-  }, [todos]);
-  const [todoPlacement, updatetodoPlacement] = useState(todos);
+
   const handleOndragEnd = (result) => {
     // Avoiding the error when moving the items out of their droppable area.
     if (!result.destination) return;
-    const items = Array.from(todoPlacement);
+    const items = Array.from(todos);
     //Retrieving the item from its previous position
     const [reorderedItem] = items.splice(result.source.index, 1);
     //Drop the item at its new postition
     items.splice(result.destination.index, 0, reorderedItem);
-    updatetodoPlacement(items);
+    dispatch({
+      type: 'SET_TODOS',
+      payload: {
+        todos: items,
+      },
+    });
   };
   return (
     <>
@@ -56,7 +57,7 @@ export default function TodoList() {
                   ref={provided.innerRef}
                   {...provided.droppableProps}
                 >
-                  {getFilteredTodos(todoPlacement, visibilityFilter).map(
+                  {getFilteredTodos(todos, visibilityFilter).map(
                     (todo, index) => (
                       <TodoElement todo={todo} key={todo.id} index={index} />
                     )
