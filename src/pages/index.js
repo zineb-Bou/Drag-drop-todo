@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react';
 import { css } from '@emotion/react';
-import Header from '../components/Header/header';
+import Header from '../components/header/header';
 import MainSec from '../components/MainSection/mainSection';
 import { useAuth } from '../lib/auth';
 
