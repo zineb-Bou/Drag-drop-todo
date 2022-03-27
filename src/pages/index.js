@@ -5,8 +5,72 @@ import Header from '../components/header/header';
 import MainSec from '../components/MainSection/mainSection';
 import { useAuth } from '../lib/auth';
 import Head from 'next/head';
+import {
+  btnWrapper,
+  signInTitle,
+  githubBtn,
+  gmailBtn,
+} from '../components/login/login.css';
+import { Git } from '../components/icons/githubLogo';
+
 export default function Home() {
   const auth = useAuth();
+  if (!auth.user) {
+    return (
+      <>
+        <div
+          css={css`
+            padding: 1rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @media (max-width: 450px) {
+              padding: 1rem;
+            }
+          `}
+        >
+          <span
+            css={css`
+              text-transform: uppercase;
+              color: var(--text);
+              letter-spacing: 2px;
+              font-weight: bold;
+              font-size: 1.5rem;
+            `}
+          >
+            todo
+          </span>
+          <a
+            href="http://github.com/zineb-bou"
+            aria-label="Link to github repo"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Git />
+          </a>
+        </div>
+        <div css={btnWrapper}>
+          <h2 css={signInTitle}>Sign in</h2>
+          <button
+            css={githubBtn}
+            onClick={(e) => {
+              auth.signinWithGitHub();
+            }}
+          >
+            Login with Github
+          </button>
+          <button
+            css={gmailBtn}
+            onClick={(e) => {
+              auth.signinWithGoogle();
+            }}
+          >
+            Login with Gmail
+          </button>
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <Head>
@@ -16,30 +80,6 @@ export default function Home() {
       </Head>
       <Header />
       <MainSec />
-      <button
-        onClick={(e) => {
-          auth.signinWithGitHub();
-        }}
-      >
-        Login with Github
-      </button>
-      <button
-        onClick={(e) => {
-          auth.signinWithGoogle();
-        }}
-      >
-        Login with Gmail
-      </button>
-      <div>{auth?.user?.name}</div>
-      {auth.user && (
-        <button
-          onClick={(e) => {
-            auth.signout();
-          }}
-        >
-          Sign out
-        </button>
-      )}
       <footer
         css={css`
           margin: 50px 0;

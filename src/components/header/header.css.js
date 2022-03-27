@@ -27,3 +27,22 @@ export const title = css`
   letter-spacing: 8px;
   text-transform: uppercase;
 `;
+
+export const signOut = css`
+  border: none;
+  margin: 0 0.5rem;
+  background: none;
+  font-weight: bold;
+  color: white;
+  padding-right: 0.5rem;
+  position: relative;
+  cursor: pointer;
+  &:before {
+    content: '';
+    width: 1px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    right: 0;
+  }
+`;
