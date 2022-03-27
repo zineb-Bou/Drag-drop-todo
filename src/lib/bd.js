@@ -1,7 +1,5 @@
-import { getFirestore } from '@firebase/firestore';
 import { collection, doc, setDoc } from 'firebase/firestore';
-
-const db = getFirestore();
+import { bd } from './firebase';
 
 export function createUser(uid, data) {
   // Add a new document with a generated id
