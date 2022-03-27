@@ -1,5 +1,5 @@
 import { collection, doc, setDoc } from 'firebase/firestore';
-import { bd } from './firebase';
+import { db } from './firebase';
 
 export function createUser(uid, data) {
   // Add a new document with a generated id
