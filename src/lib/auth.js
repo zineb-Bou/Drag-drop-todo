@@ -5,9 +5,11 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   signOut,
+  getAdditionalUserInfo,
 } from 'firebase/auth';
 import { app } from './firebase';
-import { createUser } from './bd';
+import { createUser, createTodo } from './bd';
+
 const authContext = createContext();
 
 export function AuthProvider({ children }) {
@@ -28,19 +30,17 @@ const formatUser = (user) => {
     email: user.email,
     name: user.displayName,
     provider: user.providerData[0].providerId,
-    //token,
   };
 };
 
 function useProvideAuth() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const handleUser = (rawUser) => {
+  const handleUser = (rawUser, result) => {
     if (rawUser) {
       const user = formatUser(rawUser);
-      // const { token, ...userWithoutToken } = user;
-      createUser(user.uid, user);
+      const details = getAdditionalUserInfo(result);
+      if (details.isNewUser) createUser(user.uid);
       setUser(user);
       setLoading(false);
       return user;
@@ -50,7 +50,6 @@ function useProvideAuth() {
       return false;
     }
   };
-
   //Function sign in with github
   const signinWithGitHub = () => {
     const auth = getAuth();
@@ -61,13 +60,12 @@ function useProvideAuth() {
     // });
     signInWithPopup(auth, provider).then((result) => {
       // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-      const credential = GithubAuthProvider.credentialFromResult(result);
+      //   const credential = GithubAuthProvider.credentialFromResult(result);
       //  const token = credential.accessToken;
       // The signed-in user info.
       // const user = formatUser(result.user);
       setLoading(true);
-      handleUser(result.user);
-      // ...
+      handleUser(result.user, result);
     });
     // .catch((error) => {
     //   // Handle Errors here.
@@ -86,11 +84,11 @@ function useProvideAuth() {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
+      //   const credential = GoogleAuthProvider.credentialFromResult(result);
+      //  const token = credential.accessToken;
       // The signed-in user info.
       setLoading(true);
-      handleUser(result.user);
+      handleUser(result.user, result);
       // ...
     });
   };

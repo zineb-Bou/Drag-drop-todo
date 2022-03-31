@@ -1,9 +1,9 @@
-import { collection, doc, setDoc } from 'firebase/firestore';
+import { collection, doc, setDoc, isNewUser } from 'firebase/firestore';
 import { db } from './firebase';
 
-export function createUser(uid, data) {
+export function createUser(uid) {
   // Add a new document with a generated id
   const user = doc(collection(db, 'users'), uid);
   // later...
-  setDoc(user, { uid, ...data }, { merge: true });
+  setDoc(user, { uid, todos: [] }, { merge: true });
 }
