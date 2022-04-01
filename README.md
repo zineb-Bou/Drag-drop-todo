@@ -35,3 +35,5 @@ One approach that I may change on similar projects is using a diffrent tool raht
 <!-- - Website - [Zineb Boutaa](https://zineb-bou.github.io/) -->
 
 - Twitter - [@ZBoutaa](https://twitter.com/ZBoutaa)
+
+<h2 align="center"> Made with 💖 by ZINEB </h2>
