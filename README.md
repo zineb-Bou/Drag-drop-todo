@@ -1,5 +1,7 @@
 # Drag & drop Todo app built with Nextjs ⚛️ Emotion 👩‍🎤 react-beautiful-dnd & 🔥 Firebase
 
+### Design preview
+
 ![Design preview for the Todo app coding challenge](/public/design-preview.png)
 
 ## The challenge
@@ -15,6 +17,10 @@ User should be able to:
 - Clear all completed todos
 - Toggle light and dark mode
 - Drag and drop to reorder items on the list
+
+### Links
+
+- [Live Site URL](to-do-six-smoky.vercel.app/)
 
 ## What I learned
 
