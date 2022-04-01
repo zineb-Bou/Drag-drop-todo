@@ -1,15 +1,18 @@
 import { db } from '../lib/firebase';
 import { doc, setDoc } from 'firebase/firestore';
-import { useAuth } from '../lib/auth';
 
 export const reducer = (state, action) => {
   //Passing our new todo if it is provided or passing undefined object
   const { id, text } = action.payload || { id: undefined, text: undefined };
   // This is our state that we are passing througn the whole app{todo,visibilityFilter}
-  const { todos, visibilityFilter } = state;
+  const { todos, visibilityFilter, uid } = state;
   switch (action.type) {
     case 'INITIALIZE_TODO':
-      return { todos: action.payload.todos, visibilityFilter };
+      return {
+        todos: action.payload.todos,
+        visibilityFilter,
+        uid: action.payload.uid,
+      };
     case 'ADD_TODO': {
       const todo = [
         {
@@ -19,31 +22,34 @@ export const reducer = (state, action) => {
         },
         ...todos,
       ];
-      const todoDocRef = doc(db, 'users', 'OWxS1c8ygXcwLWUn4AS1eihBJ9a2');
-      setDoc(todoDocRef, { todos: todo, uid: 'OWxS1c8ygXcwLWUn4AS1eihBJ9a2' });
+      const todoDocRef = doc(db, 'users', uid);
+      setDoc(todoDocRef, { todos: todo, uid: uid });
       return {
         todos: todo,
         visibilityFilter,
+        uid,
       };
     }
     case 'DELETE_TODO': {
       const todo = todos.filter((todo) => todo.id !== id);
-      const todoDocRef = doc(db, 'users', 'OWxS1c8ygXcwLWUn4AS1eihBJ9a2');
-      setDoc(todoDocRef, { todos: todo, uid: 'OWxS1c8ygXcwLWUn4AS1eihBJ9a2' });
+      const todoDocRef = doc(db, 'users', uid);
+      setDoc(todoDocRef, { todos: todo, uid: uid });
       return {
         todos: todo,
         visibilityFilter,
+        uid,
       };
     }
     case 'COMPLETE_TODO': {
       const todo = todos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       );
-      const todoDocRef = doc(db, 'users', 'OWxS1c8ygXcwLWUn4AS1eihBJ9a2');
-      setDoc(todoDocRef, { todos: todo, uid: 'OWxS1c8ygXcwLWUn4AS1eihBJ9a2' });
+      const todoDocRef = doc(db, 'users', uid);
+      setDoc(todoDocRef, { todos: todo, uid: uid });
       return {
         todos: todo,
         visibilityFilter,
+        uid,
       };
     }
     // case 'COMPLETE_ALL': {
@@ -56,11 +62,12 @@ export const reducer = (state, action) => {
     // }
     case 'CLEAR_COMPLETED': {
       const todo = todos.filter((t) => t.completed === false);
-      const todoDocRef = doc(db, 'users', 'OWxS1c8ygXcwLWUn4AS1eihBJ9a2');
-      setDoc(todoDocRef, { todos: todo, uid: 'OWxS1c8ygXcwLWUn4AS1eihBJ9a2' });
+      const todoDocRef = doc(db, 'users', uid);
+      setDoc(todoDocRef, { todos: todo, uid: uid });
       return {
         todos: todo,
         visibilityFilter,
+        uid,
       };
     }
     // case 'CLEAR_ALL':
@@ -78,6 +85,7 @@ export const reducer = (state, action) => {
       return {
         todos: [...action.payload.todos],
         visibilityFilter,
+        uid,
       };
     default:
       return state;

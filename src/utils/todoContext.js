@@ -40,6 +40,7 @@ const TodoContext = createContext();
 const initialState = {
   todos: [],
   visibilityFilter: 'All',
+  uid: '',
 };
 function TodoContextProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -55,6 +56,7 @@ function TodoContextProvider(props) {
         type: 'INITIALIZE_TODO',
         payload: {
           todos: doc.data().todos,
+          uid: doc.data().uid,
         },
       });
     });
