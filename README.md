@@ -36,4 +36,4 @@ One approach that I may change on similar projects is using a diffrent tool raht
 
 - Twitter - [@ZBoutaa](https://twitter.com/ZBoutaa)
 
-<h2 align="center"> Made with 💖 by ZINEB </h2>
+<h2 align="center"> Made with 💖 by <a href='https://github.com/zineb-Bou'> ZINEB BOUTAA </a> </h2>
