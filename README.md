@@ -1,15 +1,35 @@
-We're using Emotion here as it supports SSR with Next.js right out the box, while Styled Components require additional config. The syntax is identical for our purposes.
+# Drag & drop Todo app built with Nextjs ⚛️ Emotion 👩‍🎤 react-beautiful-dnd & 🔥 Firebase
 
-https://codedaily.io/tutorials/Using-react-beautiful-dnd-with-NextJS?ref=morioh.com&utm_source=morioh.com
+![Design preview for the Todo app coding challenge](/public/design-preview.png)
 
-I'm pretty happy with this one, it was my first time building a whole CRUD app, There were a lot of subtle challenges here concerning the state management and implementing the drag and drop using the react-beautiful-dnd espacialy because I am using Nextjs as it's SSR so this can mess up how some librariers operates.
+## The challenge
 
-Why react -beautiful-dnd
-there are a lot of libraries out there that allow the drag and drop interaction with react, so why react-beautiful-dnd
-Simply beacause it offers a good drag and drop experience as it's a higher level abstraction specifically built for lists vertical, horizontal, movement between lists, nested lists and so on.
+User should be able to:
 
-I am happy using different react hook to implement the todo logic (useReducer and useContext), I chose to use react hooks to manage the state rahter than any management tool out there, it's a simple app os it possible to manage the state using reacthooks, maybe react management tools for more complicated projects.
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Add new todos to the list
+- Mark todos as complete
+- Delete todos from the list
+- Filter by all/active/complete todos
+- Clear all completed todos
+- Toggle light and dark mode
+- Drag and drop to reorder items on the list
 
-concerning the light/dark toggle it may be other different approaches to build in Nextjs, I chose to use CSS varaibles, simple method that meets accessibility best practices, persists on reload and takes a user's preferred colour scheme into consideration. It also doesn't suffer from the dreaded 'flash' of incorrect colours on initial load.
+I'm pretty happy with this one, it was my first time building a whole CRUD app, There were a lot of subtle challenges here concerning the drag and drop using the react-beautiful-dnd especially because I am using Nextjs as it's an SSR so this can mess up how some libraries operate.
 
-One approach that I may change on similar future project is exploring a diffrent tool rahter than firebase. I'd like to explore animation more, and focus more on accessibility, and learn how to use a screen reader and test the app accessibility using a keyboard.
+Why react-beautiful-dnd? I chose this library simply because it offers a good drag and drop experience as it's a higher-level abstraction specifically built for vertical and horizontal lists.
+
+I used React hooks to encapsulate the UI state rather than any management tool out there, it's a simple app so it is possible to manage the state using only React Hooks.I am using useReducer with useContext. (the useContext it is not a state management solution by itself, however combining it with the useReucer it became a full state management solution).
+
+Concerning the light/dark toggle it may be other different approaches to build in Nextjs, I chose to use CSS variables, a simple method that meets accessibility best practices persists on reload and takes a user's preferred color scheme into consideration. It also doesn't suffer from the dreaded 'flash' of incorrect colors on the initial load.
+
+# Continued development
+
+One approach that I may change on similar projects is using a diffrent tool rahter than firebase. I'd like also to explore animation more, and focus more on accessibility, and learn how to use a screen reader and test the app accessibility using a keyboard.
+
+## Author
+
+<!-- - Website - [Zineb Boutaa](https://zineb-bou.github.io/) -->
+
+- Twitter - [@ZBoutaa](https://twitter.com/ZBoutaa)
